@@ -1,0 +1,25 @@
+{
+  "name": "kellydevbottest",
+  "version": "1.0.0",
+  "description": "Test bot to learn how to use them as utilities",
+  "keywords": [
+    "Bot",
+    "Discord",
+    "Testing"
+  ],
+  "homepage": "https://github.com/LunarKitsune/KellyDevBotTest#readme",
+  "bugs": {
+    "url": "https://github.com/LunarKitsune/KellyDevBotTest/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunarKitsune/KellyDevBotTest.git"
+  },
+  "license": "ISC",
+  "author": "Cheesypockets",
+  "type": "commonjs",
+  "main": "Index.js",
+  "scripts": {
+    "test": "TestPost"
+  }
+}
