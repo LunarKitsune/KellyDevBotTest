@@ -43,6 +43,40 @@ for (const folder of commandFolders){
     }
 }
 
+//adds a listener to an event. In this case a "ping event" and takes the interaction
 botClient.on(Events.InteractionCreate, (interaction) => {
-    console.log(interaction)
-})
+    if (!interaction.isChatInputCommand())
+        {
+            return;
+        }
+    console.log(interaction);
+});
+
+const command = interaction.client.commands.get(interaction.commandName);
+
+//errors iif the command is not found
+if(!command){
+    console.error(`No matching command name ${interaction.commandName} was found`);
+    return
+}
+
+//trues the interaction
+try {
+    await command.execute(interaction);
+}
+//attemps a follow up, if no follow up of a reply or deferred, error msg will display to user
+catch(error){
+    contentMsg = `there was an error while executing this command`
+    if (interaction.replied || interaction.deferred){
+        await interaction.followup({
+            content: `${contentMsg}`,
+            flags: MessageFlags.Ephemeral,
+        });
+    }
+    else{
+        await interaction.reply({
+            content: `${contentMsg}`,
+            flags: MessageFlags.Ephemeral,
+        });
+    }
+}

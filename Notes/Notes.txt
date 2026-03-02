@@ -1,0 +1,20 @@
+I am usual visual studio here. Notes will be related this program
+
+To make this project:
+-Need node.js installed
+-Need discord.js install via npm with node.js via cmd.
+    => Command: npm install discord.js
+
+-ESLint is recommended but not required.
+    => Can get extension here: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+-Javascript debugger is highly recommended
+    => Can get extension here: https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly
+
+-Need to learn Javascript for the discord.js bot?
+    => Go to this link here:   https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+-For this project I am using the discord.js guide
+*(This guide will also walk you through initiating your JavaScript enviornment and installs)
+    => interested? Go here:    https://discordjs.guide/legacy
+
