@@ -1,12 +1,28 @@
-//will eventually do a file logger here for easier reading when something happens.
+const {writeFile, WriteStream}  = require(`node:fs`);
 
-//What I want here:
-/*
-    -Errors
-    -Logging for warnings
-    -Any api changes that would have to be made
-    -for this bot.
+class FileLogger
+{
 
-    -User input and warnings should be a seperate file
-    from errors. This would make the log readings easier. 
-*/
+    constructor(){
+
+    }
+
+    /**
+     *
+     * @param {String} message      Error Message to be put in
+     * @param {String} errorFile    Error File to be written to
+     */
+    static async WriteError(message, errorFile){
+
+        await writeFile(errorFile, message, err =>{
+            if (err){
+                console.error(err);
+            }
+            else
+            {
+
+                console.log("File Written Successfully");
+            }
+        });
+    }
+}
