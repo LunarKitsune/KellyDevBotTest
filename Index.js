@@ -15,7 +15,7 @@ botClient.commands = new Collection();
 
 const foldersPath = path.join(__dirname, 'commands');
 
-//reads the folders in commands
+// reads the folders in commands
 const commandFolders = fs.readdirSync(foldersPath);
 
 //Dev Note: It seems that the program is not reading .js as a directory.
@@ -34,18 +34,19 @@ const commandFolders = fs.readdirSync(foldersPath);
 // const {GetCommands} = require(`./Events/GrabCommands`)
 
 
-// const tempCollection = (GetCommands(commandFolders));
+// const tempCollection = GetCommands(foldersPath);
 // // tempCollection.set(GetCommands(commandFolders));
 
 // for (command of tempCollection){
+//         console.log(`${command} being processed...\n`);
 //         if ('data' in command && 'execute' in command) {
 //             botClient.commands.set(command.data.name, command);
 //         } else {
-//             const errorDescript = `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`;
+//             const errorDescript = `[WARNING] The command at ${command} is missing a required "data" or "execute" property.`;
 //             console.log(`${errorDescript}`);
 //         }
 // }
-//>>>>>>>>>>>>>>>>>>END OF TEST SECTION<<<<<<<<<<<<<<<<<<<<<<<
+// >>>>>>>>>>>>>>>>>>END OF TEST SECTION<<<<<<<<<<<<<<<<<<<<<<<
 
 for (const folder of commandFolders) {
     // Grab all the command files from the commands directory you created earlier
