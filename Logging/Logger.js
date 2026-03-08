@@ -1,7 +1,8 @@
-const {writeFile, WriteStream}  = require(`node:fs`);
+const {writeFile}  = require(`node:fs`);
 
 class FileLogger
 {
+    writeStreamErrLocation = `..ErrorLogs/FileWriteErr.txt`
 
     constructor(){
 
@@ -12,11 +13,12 @@ class FileLogger
      * @param {String} message      Error Message to be put in
      * @param {String} errorFile    Error File to be written to
      */
-    static async WriteError(message, errorFile){
+    static async WriteError(errMessage, errorFileLocation){
 
-        await writeFile(errorFile, message, err =>{
+        await writeFile(errorFileLocation, errMessage, err =>{
             if (err){
                 console.error(err);
+                fstat.writeFile(writeStreamErrLocation, err);
             }
             else
             {

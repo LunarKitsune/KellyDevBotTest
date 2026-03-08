@@ -4,11 +4,11 @@ const path = require(`node:path`)
 const {Client, Collection, Events, GatewayIntentBits, MessageFlags} = require(`discord.js`)
 const {token} = require('./config.json');
 
+
 //creates the new client. In this case the bot is the client
 const botClient = new Client({
     intents: [GatewayIntentBits.Guilds]
 });
-
 
 //stores a collection of bot commands (writing this down to rememebr)
 botClient.commands = new Collection();
@@ -17,36 +17,6 @@ const foldersPath = path.join(__dirname, 'commands');
 
 // reads the folders in commands
 const commandFolders = fs.readdirSync(foldersPath);
-
-//Dev Note: It seems that the program is not reading .js as a directory.
-//the file finding may be more complex than it is suppsoed to be.
-//I will be reducing this to see if it helps. We already get into the
-//commands folder (as tested with console.log() to see output.)
-
-//I will see first if just putting ping.test into an extra folder
-//since maybe its trying to see pingtest as a folder
-
-//Update: So commandsPath was trying to read PingTest.js as a folder.
-//Throwing PingTest into another folder Solved the issue!
-
-
-//>>>>>>>>>>>>>>>>>>This is a test section<<<<<<<<<<<<<<<<<<<<
-// const {GetCommands} = require(`./Events/GrabCommands`)
-
-
-// const tempCollection = GetCommands(foldersPath);
-// // tempCollection.set(GetCommands(commandFolders));
-
-// for (command of tempCollection){
-//         console.log(`${command} being processed...\n`);
-//         if ('data' in command && 'execute' in command) {
-//             botClient.commands.set(command.data.name, command);
-//         } else {
-//             const errorDescript = `[WARNING] The command at ${command} is missing a required "data" or "execute" property.`;
-//             console.log(`${errorDescript}`);
-//         }
-// }
-// >>>>>>>>>>>>>>>>>>END OF TEST SECTION<<<<<<<<<<<<<<<<<<<<<<<
 
 for (const folder of commandFolders) {
     // Grab all the command files from the commands directory you created earlier
